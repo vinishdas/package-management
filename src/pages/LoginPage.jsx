@@ -50,7 +50,7 @@ function LoginPage() {
     
             navigate("/home");
         } else {
-            setError("Invalid username or password");
+            setError("Invalid username");
         }
     };
     
