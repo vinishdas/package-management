@@ -2,7 +2,26 @@ import React, { useState } from 'react';
 import axios from 'axios';
 import 'bootstrap/dist/css/bootstrap.min.css';
 
+
+
 function ReceptionistDashboard() {
+
+  const formatDate = (dateString) => {
+    const options = {
+      year: 'numeric',
+      month: '2-digit',
+      day: '2-digit',
+      hour: '2-digit',
+      minute: '2-digit',
+      second: '2-digit',
+      hour12: false, // Set to true if you want to use 12-hour format (AM/PM)
+    };
+  
+    const date = new Date(dateString);
+    return date.toLocaleString('en-GB', options).replace(',', '');
+  };
+  
+
   const [newPackage, setNewPackage] = useState({
     name: '',
     phone: '',
@@ -123,11 +142,11 @@ function ReceptionistDashboard() {
           packages.map((pkg, index) => (
             <div className="col-md-4" key={index}>
               <div className="card mb-4">
-                <img src={`/images/${pkg.image}`} className="card-img-top" alt="Package" />
+                <img src={`http://localhost:5000${pkg.image}`} className="card-img-top" alt="Package" />
                 <div className="card-body">
                   <h5 className="card-title">{pkg.name}</h5>
                   <p className="card-text">Phone: {pkg.phone}</p>
-                  <p className="card-text">Date Delivered: {pkg.dateDelivered}</p>
+                  <p className="card-text">Date Delivered: {formatDate(pkg.dateDelivered)}</p>
                 </div>
               </div>
             </div>
