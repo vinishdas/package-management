@@ -31,22 +31,22 @@ function StudentDashboard() {
     }, []);  // Empty dependency array to run only on component mount
 
     return (
-        <div className="container mt-5">
-            <h1 className="mb-4">Student Dashboard</h1>
+        <div >
+            <h1  >Student Dashboard</h1>
 
             {loading && <p>Loading...</p>}  {/* Show loading message while fetching data */}
             {error && <p>{error}</p>}      {/* Show error message if the API request fails */}
 
-            <div className="row">
+            <div >
                 {packages.length > 0 ? (
                     packages.map((pkg, index) => (
-                        <div className="col-md-4" key={index}>
-                            <div className="card mb-4">
-                                <img src={pkg.image || '/placeholder-package.jpg'} className="card-img-top" alt="Package" />
+                        <div   key={index}>
+                            <div >
+                                <img src={pkg.image || '/placeholder-package.jpg'}   alt="Package" />
                                 <div className="card-body">
-                                    <h5 className="card-title">{pkg.name}</h5>
-                                    <p className="card-text">Phone: {pkg.phone}</p>
-                                    <p className="card-text">Date Delivered: {pkg.dateDelivered}</p>
+                                    <h5  >{pkg.name}</h5>
+                                    <p  >Phone: {pkg.phone}</p>
+                                    <p  >Date Delivered: {pkg.dateDelivered}</p>
                                 </div>
                             </div>
                         </div>

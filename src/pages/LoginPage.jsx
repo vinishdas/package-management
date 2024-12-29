@@ -10,57 +10,72 @@ function LoginPage() {
 
   const handleLogin = async (e) => {
     e.preventDefault();
-
+  
     try {
       const response = await axios.post('http://localhost:5000/api/login', {
         name,
         password,
       });
-
-      const { role } = response.data; // Assuming the response contains a `role` property
-
-      if (role === 'student'||role ==='teacher') {
-        // Redirect to student dashboard
-        navigate('/student-dashboard');
-      } else if (role === 'receptionist') {
-        // Redirect to receptionist dashboard
-        navigate('/receptionist-dashboard');
-      } else {
-        // Invalid user role
-        setError('Invalid user role.');
+  
+      // Destructure role from the response data
+      const { role } = response.data;
+  
+      switch (role) {
+        case 'student':
+        case 'teacher':
+          // Redirect to student dashboard
+          navigate('/student-dashboard');
+          break;
+        case 'receptionist':
+          // Redirect to receptionist dashboard
+          navigate('/receptionist-dashboard');
+          break;
+        case 'admin':
+          // Redirect to admin dashboard
+          navigate('/admin-dashboard');
+          break;
+        default:
+          // Handle unexpected roles
+          setError('Invalid user role.');
+          break;
       }
     } catch (err) {
       // Handle login failure
-      setError('Login failed. Please check your credentials.');
+      if (err.response && err.response.status === 401) {
+        setError('Invalid username or password.');
+      } else {
+        setError('Login failed. Please try again later.');
+      }
     }
   };
+  
 
   return (
-    <div className="container mt-5">
+    <div  >
       <h1>Login</h1>
       <form onSubmit={handleLogin}>
-        <div className="mb-3">
-          <label className="form-label">Username</label>
+        <div  >
+          <label  >Username</label>
           <input
             type="text"
-            className="form-control"
+             
             value={name}
             onChange={(e) => setname(e.target.value)}
             required
           />
         </div>
-        <div className="mb-3">
-          <label className="form-label">Password</label>
+        <div  >
+          <label >Password</label>
           <input
             type="password"
-            className="form-control"
+             
             value={password}
             onChange={(e) => setPassword(e.target.value)}
             required
           />
         </div>
-        {error && <p className="text-danger">{error}</p>}
-        <button type="submit" className="btn btn-primary">Login</button>
+        {error && <p >{error}</p>}
+        <button type="submit"  >Login</button>
       </form>
     </div>
   );
