@@ -5,3 +5,124 @@
   width: 100vw;
   height: 100vh;
  } */
+ .fancy-button {
+  background: linear-gradient(45deg, #ff6ec4, #7873f5);
+  color: white;
+  border: none;
+  padding: 15px 30px;
+  font-size: 1.2rem;
+  font-weight: bold;
+  border-radius: 30px;
+  cursor: pointer;
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+  box-shadow: 0 5px 15px rgba(120, 115, 245, 0.4);
+  position: relative;
+  overflow: hidden;
+  z-index: 0;
+}
+
+.fancy-button::before {
+  content: '';
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  width: 0;
+  height: 0;
+  background: rgba(255, 255, 255, 0.3);
+  border-radius: 50%;
+  transition: width 0.5s ease, height 0.5s ease;
+  z-index: -1;
+}
+
+.fancy-button:hover::before {
+  width: 300%;
+  height: 300%;
+}
+
+.fancy-button:hover {
+  transform: scale(1.1);
+  box-shadow: 0 10px 25px rgba(120, 115, 245, 0.6);
+}
+
+.sliding-button {
+  background: linear-gradient(90deg, #ff7eb3, #ff758c, #ffa4c4);
+  color: white;
+  font-size: 1.2rem;
+  font-weight: bold;
+  border: 2px solid transparent;
+  border-radius: 50px;
+  padding: 12px 30px;
+  cursor: pointer;
+  position: relative;
+  overflow: hidden;
+  transition: color 0.3s ease, background 0.3s ease;
+}
+
+.sliding-button::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: -100%;
+  width: 300%;
+  height: 100%;
+  background: linear-gradient(90deg, #a4ceff, #7e9eff, #7c75ff, #a4f1ff);
+  transition: transform 0.5s ease;
+  z-index: -1;
+}
+
+.sliding-button:hover::before {
+  transform: translateX(-33%);
+}
+
+.sliding-button:hover {
+  color: #ffa4c4;
+  background: transparent;
+  border: 2px solid #ffa4c4;
+}
+.fancy-table-container {
+  margin: 20px 0;
+  text-align: center;
+}
+
+.fancy-table {
+  width: 100%;
+  border-collapse: collapse;
+  font-family: Arial, sans-serif;
+  background-color: #f9f9f9;
+  border-radius: 8px;
+  overflow: hidden;
+  box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+}
+
+.fancy-table thead {
+  background: linear-gradient(90deg, #6a11cb, #2575fc);
+  color: rgb(0, 0, 0);
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+}
+
+.fancy-table thead th {
+  padding: 15px;
+  font-size: 0.9rem;
+}
+
+.fancy-table tbody tr {
+  transition: background-color 0.3s ease, transform 0.2s ease;
+}
+
+.fancy-table tbody tr:hover {
+  background-color: rgba(37, 117, 252, 0.1);
+  transform: scale(1.02);
+}
+
+.fancy-table tbody td {
+  padding: 12px;
+  border-bottom: 1px solid #ddd;
+  text-align: center;
+  color: #333;
+}
+
+.fancy-table tbody tr:last-child td {
+  border-bottom: none;
+}

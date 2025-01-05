@@ -1,0 +1,70 @@
+/* Style for the container of package cards */
+.package-card {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 20px;
+    justify-content: space-between;
+    padding: 20px; 
+   
+}
+
+/* Style for each individual package card */
+.package-card > div {
+    width: 100%;
+    max-width: 350px; /* Set a max width for each card */
+    border: 1px solid #ddd;
+    border-radius: 8px;
+    padding: 15px;
+    background-color: #f9f9f9;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    display: flex;
+    flex-direction: column;
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+/* Hover effect for the package card */
+.package-card > div:hover {
+    transform: translateY(-5px); /* Slightly lift the card */
+    box-shadow: 0 8px 12px rgba(0, 0, 0, 0.2); /* Stronger shadow on hover */
+}
+
+/* Style for the image */
+.package-card > div img {
+    width: 100%;
+    height: auto;
+    border-radius: 8px;
+    object-fit: cover;
+    margin-bottom: 15px;
+}
+
+/* Style for the card body */
+.package-card .card-body {
+    display: flex;
+    flex-direction: column;
+    /* gap: 10px; */
+    /* justify-content: left; */
+}
+
+/* Style for the package name */
+.package-card .card-body h5 {
+    font-size: 1.2rem;
+    font-weight: bold;
+    color: #333;
+    margin: 0;
+}
+
+/* Style for the phone and delivery date text */
+.package-card .card-body p {
+    font-size: 1rem;
+    color: #555;
+    margin: 0;
+    align-self:flex-start;
+}
+
+/* Style for the 'No packages found' message */
+.package-card p {
+    font-size: 1rem;
+    color: #777;
+    text-align: center;
+    padding: 20px;
+}

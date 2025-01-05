@@ -57,6 +57,8 @@ function AdminDashboard() {
       data = {
         teacher_id: newRecord.teacher_id,
         teacher_name: newRecord.teacher_name,
+        year_joined: newRecord.year_joined,
+        phone: newRecord.phone,
         password: newRecord.teacher_password,
         role: newRecord.teacher_role,
       };
@@ -65,6 +67,7 @@ function AdminDashboard() {
       data = {
         receptionist_id: newRecord.receptionist_id,
         receptionist_name: newRecord.receptionist_name,
+        year_joined: newRecord.year_joined,
         receptionist_phone: newRecord.receptionist_phone,
         password: newRecord.receptionist_password,
         role: newRecord.receptionist_role,
@@ -110,13 +113,13 @@ function AdminDashboard() {
       <div className="Admin-Dashboar">
         <h1>Admin Dashboard</h1>
         <div className="selectTable">
-          <button onClick={() => handleSectionChange("student-table")}>
+          <button className="fancy-button" onClick={() => handleSectionChange("student-table")}>
             Student Table
           </button>
-          <button onClick={() => handleSectionChange("teacher-table")}>
+          <button className="fancy-button" onClick={() => handleSectionChange("teacher-table")}>
             Teacher Table
           </button>
-          <button onClick={() => handleSectionChange("receptionist-table")}>
+          <button className="fancy-button" onClick={() => handleSectionChange("receptionist-table")}>
             Receptionist Table
           </button>
         </div>
@@ -181,8 +184,13 @@ function AdminDashboard() {
                 value={newRecord.role}
                 onChange={handleInputChange}
               />
-              <button onClick={handleAddRecord}>Add Student</button>
-              {/* <button onClick={handleDeleteRecord}>Deletestudent</button> */}
+              <button className="sliding-button" onClick={handleAddRecord}>Add Student</button>
+              <button
+      className="sliding-button"
+      onClick={() => handleDeleteRecord(newRecord.student_id)}
+    >
+      Delete Student
+    </button>
             </div>
           )}
 
@@ -203,6 +211,20 @@ function AdminDashboard() {
                 onChange={handleInputChange}
               />
               <input
+                type="number"
+                name="year_joined"
+                placeholder="Year Joined"
+                value={newRecord.year_joined}
+                onChange={handleInputChange}
+              />
+              <input
+                type="text"
+                name="phone"
+                placeholder="Phone"
+                value={newRecord.phone}
+                onChange={handleInputChange}
+              />
+              <input
                 type="password"
                 name="teacher_password"
                 placeholder="Password"
@@ -216,7 +238,7 @@ function AdminDashboard() {
                 value={newRecord.teacher_role}
                 onChange={handleInputChange}
               />
-              <button onClick={handleAddRecord}>Add Teacher</button>
+              <button className="sliding-button" onClick={handleAddRecord}>Add Teacher</button>
               {/* <button onClick={handleDeleteRecord}>DeleteReceptionist</button> */}
             </div>
           )}
@@ -235,6 +257,13 @@ function AdminDashboard() {
                 name="receptionist_name"
                 placeholder="Receptionist Name"
                 value={newRecord.receptionist_name}
+                onChange={handleInputChange}
+              />
+               <input
+                type="number"
+                name="year_joined"
+                placeholder="Year Joined"
+                value={newRecord.year_joined}
                 onChange={handleInputChange}
               />
               <input
@@ -258,7 +287,7 @@ function AdminDashboard() {
                 value={newRecord.receptionist_role}
                 onChange={handleInputChange}
               />
-              <button onClick={handleAddRecord}>Add Receptionist</button>
+              <button className="sliding-button" onClick={handleAddRecord}>Add Receptionist</button>
             </div>
           )}
         </div>

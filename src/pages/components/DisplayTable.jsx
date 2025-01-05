@@ -52,9 +52,9 @@ function DisplayTable({ tableName }) {
 
   // Render the table based on the data
   return (
-    <div>
+    <div className='fancy-table-container'>
       <h2>{tableName.replace('-', ' ').toUpperCase()} Data</h2>
-      <table>
+      <table className='fancy-table'>
         <thead>
           <tr>
             {/* Render headers based on the table data structure */}

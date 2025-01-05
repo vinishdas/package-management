@@ -2,7 +2,8 @@ import React, { useState } from 'react';
 import { useNavigate } from 'react-router-dom';
 import axios from 'axios';
 import './components/style/LoginPage.css'
-
+import  package_img from './components/undraw_deliveries_2m9t.svg'
+import package_img2 from './components/undraw_on-the-way_ahi2.svg'
 function LoginPage() {
   const [name, setname] = useState('');
   const [password, setPassword] = useState('');
@@ -20,6 +21,7 @@ function LoginPage() {
   
       // Destructure role from the response data
       const { role } = response.data;
+      sessionStorage.setItem('studentName', name);
   
       switch (role) {
         case 'student':
@@ -53,7 +55,9 @@ function LoginPage() {
 
   return (
     <>
-    
+    <h1 className='packageLoingHeader'>Package Management  System </h1>
+    <img  id='image1' className='package-img' src={package_img} alt="Description of image" />
+    <img  id='image2' className='package-img' src={package_img2} alt="Description of image" />
     <div className='login-container'  >
       <h1>Login</h1>
       <form onSubmit={handleLogin}>

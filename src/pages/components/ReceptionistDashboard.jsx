@@ -1,6 +1,7 @@
 import React, { useState } from 'react';
 import axios from 'axios';
 import 'bootstrap/dist/css/bootstrap.min.css';
+import './style/ReceptionistDashboard.css'
 
 
 
@@ -11,10 +12,7 @@ function ReceptionistDashboard() {
       year: 'numeric',
       month: '2-digit',
       day: '2-digit',
-      hour: '2-digit',
-      minute: '2-digit',
-      second: '2-digit',
-      hour12: false, // Set to true if you want to use 12-hour format (AM/PM)
+       // Set to true if you want to use 12-hour format (AM/PM)
     };
   
     const date = new Date(dateString);

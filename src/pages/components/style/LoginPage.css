@@ -76,4 +76,25 @@
   button:active {
     background-color: #004085;
   }
+  .packageLoingHeader{
+    margin-top: 30px;
+    font-family:fantasy;
+  }
+  .package-img{
+    position: absolute;
+
+      width: 400px;
+      height: auto;
+      border-radius: 10px;
+      top:9.9rem;
+      left:65rem;89\
+      z-index: -30;
+  
+    
+  }
+  #image2{
+    top:300px;
+      left:100px;
+  }
+
   
